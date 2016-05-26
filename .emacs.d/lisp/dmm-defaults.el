@@ -3,6 +3,12 @@
 (setq initial-scratch-message "")
 (when (not dmm/is-mac?)
   (setq visible-bell t))
+(when dmm/is-mac?
+  (setq visible-bell nil)
+  (setq ring-bell-function 'ignore))
+
+; Lazy...
+(fset 'yes-or-no-p 'y-or-n-p)
 
 (setq-default user-mail-address "symlink.sk@gmail.com")
 (setq-default user-full-name    "Dave Moore")

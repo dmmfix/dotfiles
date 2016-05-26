@@ -20,7 +20,3 @@
 (setq f "-*-Menlo-normal-normal-normal-*-12-*")
 (set-face-attribute 'default nil :font f )
 (set-frame-font f nil t)
-
-;; FFS, this is required to stop the dropout box in the middle of the
-;; display
-;;(add-hook 'isearch-update-post-hook 'redraw-display)
