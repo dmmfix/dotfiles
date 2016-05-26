@@ -1,0 +1,6 @@
+#name : #ifndef XXX; #define XXX; #endif
+# --
+#if !defined(${1:$(upcase (replace-regexp-in-string ".h$" "_h" text))})
+#include "${1:granny_header.h}"
+#endif
+$0

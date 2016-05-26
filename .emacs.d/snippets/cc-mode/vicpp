@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: vicpp
+# key: vicpp
+# binding: direct-keybinding
+# --
+#include "`(concat (file-name-nondirectory (file-name-sans-extension (buffer-file-name))) ".h")`"
+
+namespace ov = ocre::victoria;
+
+$0

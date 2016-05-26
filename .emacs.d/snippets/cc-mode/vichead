@@ -1,0 +1,13 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: vichead
+# key: vichead
+# binding: direct-keybinding
+# --
+#pragma once
+
+namespace ocre { namespace victoria {
+
+$0
+
+} } // ocre::victoria
+

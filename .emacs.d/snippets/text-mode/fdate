@@ -1,0 +1,3 @@
+#name : fancy date
+# --
+`(calendar-date-string (calendar-current-date) nil nil)`

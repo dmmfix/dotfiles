@@ -1,0 +1,16 @@
+#name : #ifndef XXX; #define XXX; #endif
+# --
+#pragma once
+#include "header_preamble.h"
+// ========================================================================
+// $Notice: $
+// ========================================================================
+#include "granny_base.h"
+
+BEGIN_GRANNY_NAMESPACE;
+
+$0
+
+END_GRANNY_NAMESPACE;
+
+#include "header_postfix.h"

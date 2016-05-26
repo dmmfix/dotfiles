@@ -1,0 +1,20 @@
+[user]
+	name = Dave Moore
+	email = dmmfix@fb.com
+[core]
+	filemode = false
+	excludesfile = ~/.gitignore_global
+	trustctime = false
+	autocrlf = false
+	preloadindex = true
+	fscache = true
+	eol = lf
+	safecrlf = false
+[push]
+	default = simple
+[gc]
+	auto = 256
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

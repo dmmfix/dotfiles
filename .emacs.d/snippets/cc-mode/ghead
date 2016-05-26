@@ -1,0 +1,16 @@
+#name : #ifndef XXX; #define XXX; #endif
+# --
+// ========================================================================
+// $Notice: $
+// ========================================================================
+`(concat "#include \"" (dmm-header-forfile (buffer-name)) "\"")`
+
+#include "granny_assert.h"
+#include "granny_parameter_checking.h"
+
+// Should always be the last header included
+#include "granny_cpp_settings.h"
+// ***VERSION_CHECK***
+USING_GRANNY_NAMESPACE;
+
+$0

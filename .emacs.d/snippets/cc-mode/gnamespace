@@ -1,0 +1,7 @@
+#name : gnamespace
+# --
+BEGIN_GRANNY_NAMESPACE;
+
+$0
+
+END_GRANNY_NAMESPACE;

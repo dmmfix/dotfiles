@@ -1,0 +1,11 @@
+#name : #ifndef XXX; #define XXX; #endif
+# --
+#if !defined(`(concat (upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))) "_H")`)
+// ========================================================================
+// $Notice: $
+// ========================================================================
+
+$0
+
+#define `(concat (upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))) "_H")`
+#endif /* `(concat (upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))) "_H")` */
