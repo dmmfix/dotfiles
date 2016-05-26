@@ -29,6 +29,7 @@
   (c-set-style "granny"))
 
 (add-hook 'c-mode-common-hook   'dmm--c-mode-tweak)
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;;
 ;; C++ indentation style

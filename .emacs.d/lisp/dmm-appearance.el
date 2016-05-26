@@ -8,9 +8,10 @@
 ;; Hate wrapping lines, messes up column selection
 (setq-default truncate-lines t)
 
+; Random list of resolutions to emacs sizes
 (defvar dmm--res-to-frame-alist
-  '(((1280 800)  . ((181 57)  (0 0)))  ; mb air
-    ((1440 900)  . ((150 55)  (80  60)))  ; mb air
+  '(((1280 800)  . ((181 57)  (0 0)))     ; mb scaled
+    ((1440 900)  . ((150 55)  (80  60)))  ; mb air/mb non-scaled
     ((1920 1080) . ((150 60)  (80  60)))  ; 1080p display
     ((1920 1200) . ((150 71)  (75  60)))
     ((1680 1050) . ((150 60)  (80  60)))

@@ -8,10 +8,11 @@
     (cd *rocktenn-base-directory*))
 (defun dmm/re () (interactive) (cd *rocktenn-base-directory*))
 
-(setq mac-option-key-is-meta nil)
+(setq mac-option-key-is-meta  nil)
 (setq mac-command-key-is-meta t)
 (setq mac-command-modifier 'meta)
-(setq mac-option-modifier nil)
+(setq mac-option-modifier  'alt)
+
 
 (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
 
@@ -19,3 +20,7 @@
 (setq f "-*-Menlo-normal-normal-normal-*-12-*")
 (set-face-attribute 'default nil :font f )
 (set-frame-font f nil t)
+
+;; FFS, this is required to stop the dropout box in the middle of the
+;; display
+;;(add-hook 'isearch-update-post-hook 'redraw-display)

@@ -10,13 +10,13 @@
   (darwin     (setq dmm/is-mac?   t)))
 
 ;; ================
-;; Linux Settings
+;; Windows Settings
 (when dmm/is-win?
   (setq dmm/custom-file (expand-file-name "custom_windows.el"
                                           user-emacs-directory)))
 
 ;; ================
-;; Windows Settings
+;; Linux Settings
 (when dmm/is-linux?
   (setq dmm/custom-file (expand-file-name "custom_linux.el"
                                           user-emacs-directory)))
@@ -25,10 +25,6 @@
 ;; OS X Settings
 (when dmm/is-mac?
   (setq dired-use-ls-dired nil)
-  (setq mac-option-modifier 'alt)
-  (setq mac-command-modifier 'meta)
-
-  ;; Keep emacs Custom-settings in separate file
   (setq dmm/custom-file (expand-file-name "custom_osx.el"
                                           user-emacs-directory)))
 
