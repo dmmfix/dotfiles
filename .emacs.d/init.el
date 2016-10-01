@@ -50,8 +50,11 @@
 ;; Find file at point is awesome, but make sure to turn off the url
 ;; finds, they trigger on std::whatever names
 (setq-default ffap-url-regexp nil)
+(setq-default ffap-ftp-regexp nil)
 (require 'ffap)
 (ffap-bindings)
+(add-to-list 'ffap-c-path "c:/rocktenn/libraries")
+(add-to-list 'ffap-c-path "c:/rocktenn/projects")
 
 
 (require 'expand-region)
@@ -80,6 +83,7 @@
 
 ;; Rectangle numbers for array fills, etc.
 (global-set-key (kbd "C-c #") 'dmm/rect-numbers)
+(global-set-key (kbd "C-c v") 'dmm/comment-identifier)
 
 ;; Fix stupid C-up/down behavior
 (global-set-key   (kbd "C-<down>")  (lambda () (interactive) (forward-line 7)))
@@ -194,5 +198,3 @@
 ;;           ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
 ;;           ))
 ;;    ) t)
-
-

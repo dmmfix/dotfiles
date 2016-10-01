@@ -36,6 +36,7 @@
           (int-to-string (length (int-to-string (+ (count-lines start end)
                                                    start-at))))
           "d"))
+
 (defun dmm/rect-numbers ()
   (interactive)
   (let* ((start (region-beginning))
@@ -43,6 +44,13 @@
          (start-at 0)
          (format (dmm/rect--default-line-number-format start end start-at)))
     (rectangle-number-lines start end start-at format)))
+
+(defun dmm/comment-identifier ()
+  (interactive)
+  (save-excursion
+    (insert "/*")
+    (right-word)
+    (insert "*/")))
 
 (defun dmm/flush-cc-mode-cache ()
   (interactive)
