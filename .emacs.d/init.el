@@ -20,7 +20,6 @@
 (set-face-background 'mode-line-inactive "grey60")
 (set-face-foreground 'mode-line-inactive "black")
 
-
 ;; Set up load path
 (setq site-lisp-dir (expand-file-name "site-lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))

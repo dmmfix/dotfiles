@@ -8,3 +8,5 @@ export HOMEBREW_GITHUB_API_TOKEN=d9957525441f09458983dfe606799abbfd896daa
 
 # added by Anaconda3 4.0.0 installer
 export PATH="/Users/dmmfix/anaconda/bin:$PATH"
+
+source ~/dotfiles/git-completion.bash
