@@ -1,8 +1,5 @@
-places
 backups
+auto-save-list
 elpa
 server
-auto-save-list
-.mc-lists.el
-session.*
-smex-items
+smex*
