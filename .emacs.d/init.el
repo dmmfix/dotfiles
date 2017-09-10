@@ -1,5 +1,12 @@
 ;; New year, new .emacs  DMM 2014
 ;; NB: Much of this thanks to Magnar from EmacsRocks
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (if (fboundp 'menu-bar-mode)   (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode)   (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -8,6 +15,10 @@
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist         `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
+;; Case-insensitive...
+(setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -52,8 +63,26 @@
 (setq-default ffap-ftp-regexp nil)
 (require 'ffap)
 (ffap-bindings)
-(add-to-list 'ffap-c-path "c:/rocktenn/libraries")
-(add-to-list 'ffap-c-path "c:/rocktenn/projects")
+
+(require 'dired+)
+(require 'cl-lib)
+
+(defun is-include-root (fn) (string-match "include$" fn))
+(loop for sub in '("components" "tools" "experiments")
+      do
+      (let ((dirs (cl-remove-if-not 'is-include-root
+                                    (diredp-files-within `(,(concat *research-base-directory* sub)) () t t))))
+        (loop for dir in dirs
+              do
+              (add-to-list 'ffap-c-path dir))))
+
+
+
+
+
+(add-to-list 'ffap-c-path (concat *research-base-directory* "components"))
+(add-to-list 'ffap-c-path (concat *research-base-directory* "tools"))
+(add-to-list 'ffap-c-path (concat *research-base-directory* "experiments"))
 
 
 (require 'expand-region)
@@ -103,6 +132,9 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+(global-set-key (kbd "C-M-|") 'clang-format-buffer)
+
+
 ;; Emacs server
 (setq-default server-use-tcp t)
 (require 'server)
@@ -131,8 +163,7 @@
                                         ; uniqify
 
 ;;;FIX!
-(setq *setenv-command* "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall.bat\" amd64")
-(setq-default compile-command (concat *setenv-command* " && msbuild /verbosity:m"))
+(setq-default compile-command "cd ~/research-surreal/build && make -j 12")
 (global-set-key (kbd "<f5>")
                 (lambda () (interactive)
                   (let ((compilation-read-command t))
@@ -197,3 +228,21 @@
 ;;           ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
 ;;           ))
 ;;    ) t)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (modern-cpp-font-lock json-mode cuda-mode clang-format htmlize matlab-mode markdown-mode smex p4 volatile-highlights company php-mode cpputils-cmake cmake-ide cmake-mode visible-mark auto-complete-clang yasnippet flycheck diminish dired-details multiple-cursors f s expand-region ace-jump-buffer ace-jump-mode dash)))
+ '(rectangle-preview nil)
+ '(select-active-regions nil))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

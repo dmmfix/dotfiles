@@ -2,9 +2,7 @@
 
 ;; Add melpa to package repos
 (add-to-list 'package-archives 
-             '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives
-  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "https://melpa.org/packages/"))
 
 (package-initialize)
 
@@ -47,6 +45,7 @@ re-downloaded in order to locate PACKAGE."
      f
      multiple-cursors
      dired-details
+     dired+
      diminish
      flycheck
      yasnippet
@@ -55,6 +54,7 @@ re-downloaded in order to locate PACKAGE."
      cmake-mode
      cmake-ide
      cpputils-cmake
+     clang-format
      php-mode
      company
      volatile-highlights

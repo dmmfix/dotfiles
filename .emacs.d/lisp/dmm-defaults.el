@@ -10,7 +10,7 @@
 ; Lazy...
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq-default user-mail-address "symlink.sk@gmail.com")
+(setq-default user-mail-address "dmmfix@fb.com")
 (setq-default user-full-name    "Dave Moore")
 
 (delete-selection-mode t)
