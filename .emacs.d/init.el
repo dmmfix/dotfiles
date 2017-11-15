@@ -51,6 +51,24 @@
 (require 'setup-p4)
 (require 'setup-cc-mode)
 
+(setq rtags-path "~/rtags/bin")
+(require 'rtags)
+(global-set-key (kbd "C-.") 'rtags-find-symbol-at-point)
+(global-set-key (kbd "C->") 'rtags-find-symbol)
+
+;;(add-hook 'c++-mode-hook 'flycheck-mode)
+;;(add-hook 'c-mode-hook 'flycheck-mode)
+;;(require 'flycheck-rtags)
+;;
+;;(defun my-flycheck-rtags-setup ()
+;;  (flycheck-select-checker 'rtags)
+;;  (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
+;;  (setq-local flycheck-check-syntax-automatically nil))
+;;;; c-mode-common-hook is also called by c++-mode
+;;(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
+
+
+
 ;; =============================================================================
 ;; Tiny stuff
 ;; =============================================================================
@@ -62,6 +80,8 @@
 (setq-default ffap-ftp-regexp nil)
 (require 'ffap)
 (ffap-bindings)
+
+(setq ffip-find-options "-not -regex \".*third_party/.*\" -not -regex \".*build/.*\"")
 
 (require 'dired+)
 (require 'cl-lib)
@@ -193,12 +213,11 @@
                                   (buffer-name))))))
                 
 
-
-(global-set-key (kbd "<f7>") 'ocre/txt)
-(add-hook 'c++-mode-hook     'ocre/txt) ; should probably restrict to just ocre code
-(add-hook 'c-mode-hook       'ocre/txt)
-(add-hook 'lua-mode-hook     'ocre/txt)
-(add-hook 'nxml-mode-hook    'ocre/txt)
+;;(global-set-key (kbd "<f7>") 'ocre/txt)
+;;(add-hook 'c++-mode-hook     'ocre/txt) ; should probably restrict to just ocre code
+;;(add-hook 'c-mode-hook       'ocre/txt)
+;;(add-hook 'lua-mode-hook     'ocre/txt)
+;;(add-hook 'nxml-mode-hook    'ocre/txt)
 
 ;;;; Test new c++11x keywords
 ;;(add-hook
@@ -249,7 +268,8 @@
    (quote
     (modern-cpp-font-lock json-mode cuda-mode clang-format htmlize matlab-mode markdown-mode smex p4 volatile-highlights company php-mode cpputils-cmake cmake-ide cmake-mode visible-mark auto-complete-clang yasnippet flycheck diminish dired-details multiple-cursors f s expand-region ace-jump-buffer ace-jump-mode dash)))
  '(rectangle-preview nil)
- '(select-active-regions nil))
+ '(select-active-regions nil)
+ '(split-width-threshold 240))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

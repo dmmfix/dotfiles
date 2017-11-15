@@ -18,7 +18,7 @@
     ((2560 1600) . ((160 80)  (480 60)))
     ((5120 1826) . ((160 88)  (480 60)))
     ((3760 2306) . ((160 88)  (80  60)))
-    ((3840 2160) . ((160 100) (700 200)))))
+    ((3840 2160) . ((160 88) (700 60)))))
 
 (defun dmm--get-position ()
   (let* ((x (display-pixel-width))
@@ -42,7 +42,8 @@
         (dim (dmm--get-dimension)))
     (set-frame-position (selected-frame) (first  pos) (second pos))
     (set-frame-size (selected-frame) (first  dim) (second dim))))
-(dmm-frame-specs)
+(when (display-graphic-p)
+  (dmm-frame-specs))
 
 (defvar *default-position* (dmm--get-position)
   "Supportable size of the window, givn the font choice")

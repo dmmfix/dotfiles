@@ -57,6 +57,8 @@ re-downloaded in order to locate PACKAGE."
      clang-format
      php-mode
      company
+     rtags
+     flycheck-rtags
      volatile-highlights
      p4)))
 
