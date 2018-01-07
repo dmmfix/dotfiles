@@ -20,7 +20,6 @@
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Default color scheme is really hard on the eyes.  Fix that first
 ;; thing
@@ -68,22 +67,19 @@
 (require 'cl-lib)
 
 (defun is-include-root (fn) (string-match "include$" fn))
+(defun is-src-root (fn) (string-match "src$" fn))
+
 (loop for sub in '("components" "tools" "experiments")
       do
-      (let ((dirs (cl-remove-if-not 'is-include-root
+      (let ((dirs (cl-remove-if-not (lambda (d) (or (is-include-root d) (is-src-root d)))
                                     (diredp-files-within `(,(concat *research-base-directory* sub)) () t t))))
         (loop for dir in dirs
               do
               (add-to-list 'ffap-c-path dir))))
 
-
-
-
-
 (add-to-list 'ffap-c-path (concat *research-base-directory* "components"))
 (add-to-list 'ffap-c-path (concat *research-base-directory* "tools"))
 (add-to-list 'ffap-c-path (concat *research-base-directory* "experiments"))
-
 
 (require 'expand-region)
 (global-set-key (kbd "M-r") 'er/expand-region)
@@ -182,6 +178,21 @@
       (progn (print buffer-file-coding-system)
              (set-buffer-file-coding-system 'utf-8-unix)))
   (whitespace-mode nil))
+
+(defun surreal-jump (f)
+  (interactive)
+  (if (string-match "\\(.*research-surreal.*\\)include/surreal/\\(.*\\)\\.h$" f)
+      (concat (match-string 1 f) "src/" (match-string 2 f) ".cpp")
+    (if (string-match "\\(.*research-surreal.*\\)src/\\(.*\\)\\.cpp$" f)
+        (concat (match-string 1 f) "include/surreal/" (match-string 2 f) ".h"))));
+
+(global-set-key (kbd "C-c o")
+                (lambda () (interactive) (find-file-existing
+                         (surreal-jump
+                          (concat (uniquify-buffer-file-name (current-buffer)) "/"
+                                  (buffer-name))))))
+                
+
 
 (global-set-key (kbd "<f7>") 'ocre/txt)
 (add-hook 'c++-mode-hook     'ocre/txt) ; should probably restrict to just ocre code

@@ -1,12 +1,15 @@
 ;; custom settings
 (defvar *rocktenn-base-directory* "~/rocktenn"
   "Base directory of the Research repository on this machine")
+(defvar *research-base-directory* "~/research-surreal/"
+  "Base directory of the Research repository on this machine")
 
 ;; By default, go to the research repo
 
-(if (file-exists-p *rocktenn-base-directory*)
-    (cd *rocktenn-base-directory*))
+(if (file-exists-p *research-base-directory*)
+    (cd *research-base-directory*))
 (defun dmm/re () (interactive) (cd *rocktenn-base-directory*))
+(defun dmm/su () (interactive) (cd *research-base-directory*))
 
 (setq mac-option-key-is-meta  nil)
 (setq mac-command-key-is-meta t)
