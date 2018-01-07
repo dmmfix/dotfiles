@@ -4,9 +4,9 @@ export GIT_EDITOR=$EDITOR
 alias rt="cd ~/rocktenn"
 alias rotd="pushd -0"
 alias e="$EDITOR -n"
-export HOMEBREW_GITHUB_API_TOKEN=d9957525441f09458983dfe606799abbfd896daa
 
 # added by Anaconda3 4.0.0 installer
 export PATH="/Users/dmmfix/anaconda/bin:$PATH"
 
 source ~/dotfiles/git-completion.bash
+source ~/dotfiles/osx-no-checkin.bash
