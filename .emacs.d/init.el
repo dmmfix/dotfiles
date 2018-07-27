@@ -20,6 +20,10 @@
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
 
+(global-set-key (kbd "C-x C-k") 'point-to-register)
+(global-set-key (kbd "C-x C-l") 'jump-to-register)
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Default color scheme is really hard on the eyes.  Fix that first
 ;; thing
@@ -56,17 +60,8 @@
 (global-set-key (kbd "C-.") 'rtags-find-symbol-at-point)
 (global-set-key (kbd "C->") 'rtags-find-symbol)
 
-;;(add-hook 'c++-mode-hook 'flycheck-mode)
-;;(add-hook 'c-mode-hook 'flycheck-mode)
-;;(require 'flycheck-rtags)
-;;
-;;(defun my-flycheck-rtags-setup ()
-;;  (flycheck-select-checker 'rtags)
-;;  (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
-;;  (setq-local flycheck-check-syntax-automatically nil))
-;;;; c-mode-common-hook is also called by c++-mode
-;;(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
-
+;; BUCK files are python...
+(add-to-list 'auto-mode-alist '("BUCK" . python-mode))
 
 
 ;; =============================================================================
@@ -179,7 +174,7 @@
                                         ; uniqify
 
 ;;;FIX!
-(setq-default compile-command "cd ~/research-surreal/build && make -j 12")
+(setq-default compile-command "cd ~/ovrsource/build_relwith && make -j 12")
 (global-set-key (kbd "<f5>")
                 (lambda () (interactive)
                   (let ((compilation-read-command t))

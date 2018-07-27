@@ -1,6 +1,6 @@
 (defvar *rocktenn-base-directory* "~/rocktenn/"
   "Base directory of the Research repository on this machine")
-(defvar *research-base-directory* "~/research-surreal/"
+(defvar *research-base-directory* "~/ovrsource/Research/ar/"
   "Base directory of the Research repository on this machine")
 
 ;; By default, go to the research repo
