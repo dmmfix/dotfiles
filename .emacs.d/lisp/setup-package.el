@@ -44,8 +44,6 @@ re-downloaded in order to locate PACKAGE."
      s
      f
      multiple-cursors
-     dired-details
-     dired+
      diminish
      flycheck
      yasnippet

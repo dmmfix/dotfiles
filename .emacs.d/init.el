@@ -23,6 +23,8 @@
 (global-set-key (kbd "C-x C-k") 'point-to-register)
 (global-set-key (kbd "C-x C-l") 'jump-to-register)
 
+(global-set-key (kbd "C-x O") 'other-frame)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Default color scheme is really hard on the eyes.  Fix that first
@@ -261,7 +263,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (modern-cpp-font-lock json-mode cuda-mode clang-format htmlize matlab-mode markdown-mode smex p4 volatile-highlights company php-mode cpputils-cmake cmake-ide cmake-mode visible-mark auto-complete-clang yasnippet flycheck diminish dired-details multiple-cursors f s expand-region ace-jump-buffer ace-jump-mode dash)))
+    (modern-cpp-font-lock json-mode cuda-mode clang-format htmlize matlab-mode markdown-mode smex p4 volatile-highlights company php-mode cpputils-cmake cmake-ide cmake-mode visible-mark auto-complete-clang yasnippet flycheck diminish multiple-cursors f s expand-region ace-jump-buffer ace-jump-mode dash)))
  '(rectangle-preview nil)
  '(select-active-regions nil)
  '(split-width-threshold 240))
